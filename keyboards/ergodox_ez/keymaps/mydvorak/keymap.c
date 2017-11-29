@@ -44,7 +44,7 @@ enum{
   TD_PAREN,
   TD_CURLY,
   TD_BRACKET,
-  TD_COLN2SCLN
+  TD_COMM2SCLN
 };
 
 const uint16_t PROGMEM fn_actions[] = {
@@ -62,7 +62,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [BASE] = KEYMAP(  // layer 0 : default
         // left hand
                 KC_ESC,      TD(TD_DLR_AT),   TD(TD_BRACKET),    TD(TD_CURLY),KC_RCBR,    KC_RBRC,    TD(TD_FTS),
-                GUI_T(KC_TAB),        TD(TD_COLN2SCLN),         KC_COMM,          KC_DOT,              KC_P,       KC_Y,    TD(TD_PAREN),
+                GUI_T(KC_TAB),        KC_COLN,         TD(TD_COMM2SCLN),          KC_DOT,              KC_P,       KC_Y,    TD(TD_PAREN),
                 M(UNDS_CTL),        KC_A,     KC_O,            KC_E,            KC_U,     KC_I,
                 TD(TD_DOUBLE_QUOTE),    TD(TD_SINGLE_QUOTE),     KC_Q,             KC_J,              KC_K,       KC_X,        TD(TD_ALT_TAB),
                 LCTL(LALT(KC_RGHT)),      KC_NO,       KC_PGUP,      KC_PGDN,     KC_NO,
@@ -90,7 +90,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [SFTL] = KEYMAP(  // layer 1 : shift layer
         // left hand
         KC_TRNS,                KC_1,                 KC_2,       KC_3,       KC_4,        KC_5,       M(RARROW),
-        M(S_GUI_TAB),  TD(TD_COLN2SCLN),         S(KC_COMM),  S(KC_DOT),    S(KC_P),     S(KC_Y),        S(KC_1),
+        M(S_GUI_TAB),  KC_SCLN,         S(KC_COMM),  S(KC_DOT),    S(KC_P),     S(KC_Y),        S(KC_1),
         M(HASH_SCTL),S(KC_A),        S(KC_O),    S(KC_E),    S(KC_U),     S(KC_I),
         KC_TRNS,          KC_TRNS,              S(KC_Q),    S(KC_J),    S(KC_K),     S(KC_X),     S(LALT(KC_TAB)),
         LCTL(LALT(KC_LEFT)),          KC_TRNS,             KC_TRNS,    KC_TRNS,    KC_TRNS,
@@ -513,7 +513,7 @@ qk_tap_dance_action_t tap_dance_actions[] = {
   [TD_BRACKET] = ACTION_TAP_DANCE_FN(dance_bracket),
   [TD_FTS] = ACTION_TAP_DANCE_DOUBLE (S(KC_1), S(KC_SLSH)),
   [TD_FEF] = ACTION_TAP_DANCE_FN (dance_fef),
-  [TD_COLN2SCLN] = ACTION_TAP_DANCE_DOUBLE (KC_COLN,KC_SCLN)
+  [TD_COMM2SCLN] = ACTION_TAP_DANCE_DOUBLE (KC_COMM,KC_SCLN)
 };
 
 // Runs just one time when the keyboard initializes.
